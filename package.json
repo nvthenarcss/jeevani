@@ -1,0 +1,1 @@
+{"name":"jeevani","version":"1.1.0","description":"Offline-first maternal danger-sign decision support (prototype)","scripts":{"start":"node server.js","start:env":"node --env-file=.env server.js","start:pg":"node --env-file=.env server.js"},"dependencies":{"pg":"^8.11.0"},"engines":{"node":">=20.6"}}

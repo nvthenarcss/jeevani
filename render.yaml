@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: jeevani
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: jeevani-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SUPERVISOR_EMAIL
+        sync: false
+      - key: SUPERVISOR_PASSWORD
+        sync: false
+      - key: WORKER_CREDENTIALS
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+
+databases:
+  - name: jeevani-db
+    databaseName: jeevani
+    user: jeevani
+    postgresMajorVersion: "16"
+    plan: free
